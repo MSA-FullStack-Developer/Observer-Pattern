@@ -3,13 +3,19 @@ package opt;
 public class TestStart {
 
 	public static void main(String[] args) {
-		Subject subject = new Youtuber();
+		Subject subject = new Youtuber("PewDiePie");
+		NormalSubscriber james = new NormalSubscriber("James");
+		NormalSubscriber peter = new NormalSubscriber("Peter");
+		PremiumSubscriber tom = new PremiumSubscriber("tom");
 		
-		NormalSubscriber normalSubscriber = new NormalSubscriber();
-		PremiumSubscriber premiumSubscriber = new PremiumSubscriber();
+		subject.subscribe(james);
+		subject.subscribe(peter);
+		subject.subscribe(tom);
+		subject.unSubscribe(james);
 		
-		subject.subscribe(normalSubscriber);
-		subject.subscribe(premiumSubscriber);
+		((Youtuber)subject).videoUpload();
+		
+		((Youtuber)subject).showInfo();
 	}
 
 }

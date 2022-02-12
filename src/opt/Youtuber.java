@@ -6,31 +6,37 @@ public class Youtuber implements Subject {
 
 	private ArrayList<Observer> observers = new ArrayList<>();
 	private String channelName;
+	private int numberOfSubscribers;
 	
-	
-	public Youtuber() {
-		System.out.println("익명의 유튜버가 생겼습니다.");
-		System.out.println("-------------------");
-	}
-	
-
 	public Youtuber(String channelName) {
 		this.channelName = channelName;
-		System.out.println(this.channelName +" 유튜버가 생겼습니다.");
+		System.out.println(this.channelName +" 유튜버가 생성됐습니다.");
 		System.out.println("-------------------");
 	}
 
+	public void videoUpload() {
+		System.out.println(channelName + "님의 영상이 업로드 되었습니다.");
+		System.out.println("-------------------");
+		notifySubscribers();
+	}
+	
+	public void showInfo() {
+		numberOfSubscribers = observers.size();
+		System.out.println(channelName + "님 채널의 현재 구독자 수는 " + numberOfSubscribers + "명 입니다.");
+	}
 
 	@Override
 	public void subscribe(Observer observer) {
 		observers.add(observer);
-		System.out.println("구독자가 1명 추가됐습니다.");
+		String name = observer.getName();
+		System.out.println(name + "님이 구독했습니다.");
 	}
 
 	@Override
-	public void unsubscribe(Observer observer) {
+	public void unSubscribe(Observer observer) {
 		observers.remove(observer);
-		System.out.println("구독자가 1명 사라졌습니다.");
+		String name = observer.getName();
+		System.out.println(name + "님이 구독을 취소했습니다.");
 	}
 
 	@Override
@@ -38,13 +44,6 @@ public class Youtuber implements Subject {
 		for(Observer o : observers) {
 			o.update();
 		}
-		
-	}
-
-	@Override
-	public void notifyPremiumSubscribers() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
