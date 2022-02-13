@@ -17,6 +17,7 @@ public class Youtuber extends Observable {
 		setChanged();
 		notifyObservers();
 	}
+	
 	public void showInfo() {
 		numberOfSubscribers = countObservers();
 		System.out.println("**********************************");

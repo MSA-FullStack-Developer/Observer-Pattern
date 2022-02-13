@@ -11,13 +11,11 @@ public class Youtuber implements Subject {
 	public Youtuber(String channelName) {
 		this.channelName = channelName;
 		System.out.println(this.channelName +" 유튜버가 생성됐습니다.");
-		System.out.println("-------------------");
 	}
 
-	public void videoUpload() {
-		System.out.println(channelName + "님의 영상이 업로드 되었습니다.");
-		System.out.println("-------------------");
-		notifySubscribers();
+	public void videoUpload(Video v) {
+		System.out.println(channelName + "님의 " + v.getVideoName() + " 영상이 업로드 되었습니다.");
+		notifySubscribers(v);
 	}
 	
 	public void showInfo() {
@@ -38,11 +36,11 @@ public class Youtuber implements Subject {
 		String name = observer.getName();
 		System.out.println(name + "님이 구독을 취소했습니다.");
 	}
-
+	
 	@Override
-	public void notifySubscribers() {
+	public void notifySubscribers(Video v) {
 		for(Observer o : observers) {
-			o.update();
+			o.update(v);
 		}
 	}
 
