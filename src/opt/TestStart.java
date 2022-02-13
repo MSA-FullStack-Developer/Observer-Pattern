@@ -11,7 +11,7 @@ public class TestStart {
 		NormalSubscriber peter = new NormalSubscriber("Peter"); //peter 일반 구독자 생성
 		subject.subscribe(peter); 								//peter가 구독함
 		
-		PremiumSubscriber tom = new PremiumSubscriber("tom");   //tom 프리미엄 구독가 생성
+		PremiumSubscriber tom = new PremiumSubscriber("Tom");   //tom 프리미엄 구독자 생성
 		subject.subscribe(tom);									//tom이 구독함
 		
 		((Youtuber)subject).showInfo();
