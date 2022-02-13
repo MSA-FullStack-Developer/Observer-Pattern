@@ -1,7 +1,6 @@
-package opt;
+package com.observer;
 
-abstract class Video {
-	
+public abstract class Video {
 	private String videoName;
 	private String videoGrade;
 	
@@ -25,6 +24,4 @@ abstract class Video {
 	public void setVideoGrade(String videoGrade) {
 		this.videoGrade = videoGrade;
 	}
-	
-	
 }
