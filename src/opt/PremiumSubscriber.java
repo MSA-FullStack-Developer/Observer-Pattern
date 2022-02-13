@@ -9,8 +9,13 @@ public class PremiumSubscriber implements Observer{
 	}
 
 	@Override
-	public void update() {
-		System.out.println("프리미엄 구독자 " + name + "이(가) 영상 업로드 소식을 받았습니다.");
+	public void update(Video video) {
+		if(video instanceof NormalVideo) {
+			System.out.println("프리미엄 구독자 " + name + "이(가) " + video.getVideoName() + " 영상 업로드 소식을 받았습니다.");
+		}else if(video instanceof PremiumVideo) {
+			System.out.println("프리미엄 구독자 " + name + "이(가) " + video.getVideoName() + " 영상 업로드 소식을 받았습니다. (이 영상은 프리미엄 구독자만 볼 수 있습니다.)");
+		}
+
 	}
 
 	@Override
