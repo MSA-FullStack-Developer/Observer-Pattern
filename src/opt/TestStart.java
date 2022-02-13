@@ -5,13 +5,13 @@ public class TestStart {
 	public static void main(String[] args) {
 		Subject subject = new Youtuber("PewDiePie");	//유튜버를 생성합니다.
 		
-		NormalSubscriber james = new NormalSubscriber("James");	//James 일반 구독자가 생성
+		NormalSubscriber james = new NormalSubscriber("James");	//James 일반 구독자 생성
 		subject.subscribe(james);								//James가 구독함
 		
-		NormalSubscriber peter = new NormalSubscriber("Peter"); //peter 일반 구독자가 생성
+		NormalSubscriber peter = new NormalSubscriber("Peter"); //peter 일반 구독자 생성
 		subject.subscribe(peter); 								//peter가 구독함
 		
-		PremiumSubscriber tom = new PremiumSubscriber("tom");   //tom 일반 구독자가 생성
+		PremiumSubscriber tom = new PremiumSubscriber("tom");   //tom 프리미엄 구독가 생성
 		subject.subscribe(tom);									//tom이 구독함
 		
 		((Youtuber)subject).showInfo();
